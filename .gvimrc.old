@@ -1,0 +1,10 @@
+set lines=30
+set columns=85
+syntax on
+"set guifont=Terminus\ 12
+set guifont=IBM\ 3270\ Narrow\ Medium\ 15
+"set t_Co=256
+"colorscheme sheep_blue 
+"colorscheme 3277
+colorscheme monocgreen
+set go=egmrLt

@@ -1,0 +1,784 @@
+# Global initialisation file for SciTE
+# For Linux, place in $prefix/share/scite
+# For Windows, place in same directory as SciTE.EXE (or Sc1.EXE)               
+# Documentation at http://www.scintilla.org/SciTEDoc.html
+WHITEGRAY=1
+FORECOLOR=#000000
+BACKCOLOR=#8c8c8c
+if WHITEGRAY
+	caret.fore=#0000FF
+	selection.fore=#FFFFFF
+	selection.back=#000000
+	selection.alpha=256
+	colour.code.comment.box=fore:#000000,back:#8c8c8c
+	colour.code.comment.line=fore:#000000,back:#8c8c8c
+	colour.code.comment.doc=fore:#000000,back:#8c8c8c
+	colour.text.comment=fore:#000000,back:#8c8c8c
+	colour.text.comment=fore:#000000,back:#8c8c8c
+	#colour.constant=fore:#55FF55,back:#8c8c8c
+	colour.constant=fore:#FFFFFF,back:#8c8c8c
+	colour.embedded.comment=back:#8c8c8c
+	colour.embedded.js=
+	colour.notused=back:#8c8c8c
+
+	#colour.number=fore:#55FF55,bold
+	colour.number=fore:#FFFFFF
+	colour.keyword=fore:#FFFFFF,bold,italics
+	#colour.keyword=fore:#00FF00,bold
+	#colour.string=fore:#55FF55
+	colour.string=fore:#FFFFFF
+	#colour.char=fore:#55FF55
+	colour.char=fore:#FFFFFF
+	#colour.operator=fore:#55FF55
+	colour.operator=fore:#FFFFFF
+	colour.preproc=back:#8c8c8c
+	colour.error=fore:#FFFF00,back:#FF0000
+
+	# Global default styles for all languages
+	font.override=$(font.monospace)
+	#font.comment=font:Tahoma,size:10,$(font.override),fore:#333333
+	font.small=size:12
+	# default
+	#style.*.32=fore:#FFFFFF,back:#8c8c8c,$(font.base)
+	style.*.32=fore:#FFFFFF,back:#8c8c8c,$(font.monospace)
+	# line numbers in the margin
+	#style.*.33=fore:#FFFFFF,back:#8c8c8c,$(font.base)
+	style.*.33=fore:#FFFFFF,back:#8c8c8c,$(font.monospace)
+	# display matching braces
+	style.*.34=fore:#FF0000,$(font.base),bold
+	# display non-matching braces
+	style.*.35=fore:#FF6699,$(font.base),bold
+	# displaying control characters
+	style.*.36=
+	# displaying indentation guides
+	#style.*.37=fore:#FFFF00,back:#FFFFFF,$(font.base)
+	style.*.37=fore:#FFFF00,back:#FFFFFF,$(font.monospace)
+	# calltip
+	#style.*.38=fore:#0066ff,back:#FFFFFF,$(font.base)
+	style.*.38=fore:#0066ff,back:#FFFFFF,$(font.monospace)
+	# Globals
+
+# Window sizes and visibility
+if PLAT_WIN
+	position.left=0
+	position.top=0
+if PLAT_GTK
+	position.left=5
+	position.top=22
+position.width=768
+position.height=740
+
+if USE_CUSTOM_SETTINGS
+	position.left=525
+	position.top=0
+	position.width=755
+	position.height=996
+
+#position.maximize=1
+#position.tile=1
+#full.screen.hides.menu=1
+#minimize.to.tray=1
+split.vertical=1
+
+if USE_CUSTOM_SETTINGS
+	split.vertical=0
+
+#output.horizontal.size=200
+#output.vertical.size=60
+#output.initial.hide=1
+#horizontal.scrollbar=0
+#horizontal.scroll.width=10000
+#horizontal.scroll.width.tracking=0
+#output.horizontal.scrollbar=0
+#output.horizontal.scroll.width=10000
+#output.horizontal.scroll.width.tracking=0
+#output.scroll=0
+
+if USE_CUSTOM_SETTINGS
+	output.scroll=2
+
+#error.select.line=1
+#end.at.last.line=0
+tabbar.visible=0
+#tabbar.hide.one=1
+#tabbar.multiline=1
+toolbar.visible=0
+
+if USE_CUSTOM_SETTINGS
+	toolbar.visible=0
+
+#toolbar.detachable=1
+#toolbar.usestockicons=1
+menubar.detachable=1
+#undo.redo.lazy=1
+statusbar.visible=1
+
+if USE_CUSTOM_SETTINGS
+	statusbar.visible=1
+
+#fileselector.width=800
+#fileselector.height=600
+#fileselector.show.hidden=1
+#magnification=-1
+#output.magnification=-1
+
+# Sizes and visibility in edit pane
+line.margin.visible=0
+#line.margin.width=4
+#margin.width=16
+#fold.margin.width=16
+#fold.margin.colour=#FF0000
+#fold.margin.highlight.colour=#0000FF
+#blank.margin.left=4
+#blank.margin.right=4
+buffered.draw=1
+#two.phase.draw=0
+use.palette=0
+
+if USE_CUSTOM_SETTINGS
+	line.margin.visible=0
+	line.margin.width=
+	margin.width=
+	fold.margin.width=0
+
+# Element styles
+#view.eol=1
+#control.char.symbol=.
+caret.period=500
+view.#FFFFFFspace=0
+view.indentation.#FFFFFFspace=1
+view.indentation.guides=1
+view.indentation.examine=3
+highlight.indentation.guides=1
+caret.width=3
+#caret.line.back=#FFFED8
+#caret.line.back.alpha=63
+
+if USE_CUSTOM_COLOURS
+	caret.fore=$(colour.cursor.fore)
+	caret.line.back=#434443
+	caret.line.back.alpha=256
+if USE_CUSTOM_COLOURS_HIGH_CONTRAST
+	caret.line.back=#121212
+
+edge.column=200
+edge.mode=0
+
+if USE_CUSTOM_SETTINGS
+	edge.column=79
+	edge.mode=1
+
+edge.colour=#C0DCC0
+
+if USE_CUSTOM_COLOURS
+	edge.colour=#55644f
+
+braces.check=1
+braces.sloppy=1
+#selection.fore=#006000
+# DADADA used as background because it yields standard silver 8c8c8c
+# on low colour displays and a reasonable light grey on higher bit depths
+if PLAT_WINNT
+	selection.alpha=30
+	selection.back=#FFFFFF
+if PLAT_WIN95
+	selection.back=#000000
+if PLAT_GTK
+	selection.alpha=30
+	selection.back=#000000
+
+if USE_CUSTOM_COLOURS
+	#selection.fore=#d0d0a0
+	#selection.fore=#FFFFFF
+	#selection.back=#242424
+	#selection.back=#000000
+	#selection.alpha=256
+#if USE_CUSTOM_COLOURS_HIGH_CONTRAST
+	#selection.fore=#ccdc90
+	#selection.fore=#ffffff
+	#selection.back=#353a37
+	#selection.back=#000000
+	
+
+##FFFFFFspace.fore=#FF0000
+##FFFFFFspace.back=#FFF0F0
+#error.marker.fore=#0000A0
+#error.marker.back=#DADAFF
+#bookmark.fore=#808000
+#bookmark.back=#FFFFA0
+#bookmark.alpha=
+#find.mark=#0000FF
+
+if USE_CUSTOM_COLOURS
+	error.marker.fore=
+	error.marker.back=#262626
+	bookmark.fore=
+	bookmark.back=#262626
+
+# Scripting
+#ext.lua.startup.script=
+#ext.lua.auto.reload=1
+#ext.lua.reset=1
+
+# Checking
+are.you.sure=1
+#are.you.sure.for.build=1
+#save.all.for.build=1
+#quit.on.close.last=1
+#load.on.activate=1
+
+if USE_CUSTOM_SETTINGS
+	load.on.activate=1
+
+#save.on.deactivate=1
+#are.you.sure.on.reload=1
+#reload.preserves.undo=1
+#check.if.already.open=1
+
+if USE_CUSTOM_SETTINGS
+	are.you.sure.on.reload=1
+	reload.preserves.undo=1
+	check.if.already.open=1
+
+default.file.ext=.cxx
+#source.default.extensions=.h|.cxx|.bat
+#title.full.path=1
+#title.show.buffers=1
+
+if USE_CUSTOM_SETTINGS
+	title.show.buffers=1
+
+#save.recent=1
+#save.session=1
+#session.bookmarks=1
+#session.folds=1
+#save.position=1
+#open.dialog.in.file.directory=1
+#strip.trailing.spaces=1
+#ensure.final.line.end=1
+#ensure.consistent.line.ends=1
+#save.deletes.first=1
+buffers=10
+
+if USE_CUSTOM_SETTINGS
+	buffers=100
+
+#buffers.zorder.switching=1
+#api.*.cxx=d:\api\w.api
+
+if USE_CUSTOM_SETTINGS
+	api.*.c=c.api
+	api.*.cpp=cpp.api
+
+#win95.death.delay=1000
+#locale.properties=locale.de.properties
+#translation.missing=***
+#read.only=1
+#max.file.size=1
+
+# Indentation
+tabsize=4
+indent.size=4
+use.tabs=1
+#indent.auto=1
+indent.automatic=1
+indent.opening=0
+indent.closing=0
+#tab.indents=0
+#backspace.unindents=0
+
+if USE_CUSTOM_SETTINGS
+	tabsize=4
+	indent.size=4
+	use.tabs.$(file.patterns.py)=0
+	indent.automatic=0
+	tab.indents=1
+	backspace.unindents=1
+
+# Wrapping of long lines
+wrap=1
+wrap.style=1
+#cache.layout=3
+#output.wrap=1
+#output.cache.layout=3
+wrap.visual.flags=3
+wrap.visual.flags.location=3
+wrap.visual.startindent=4
+
+# Folding
+# enable folding, and show lines below when collapsed.
+fold=1
+fold.compact=1
+fold.flags=16
+fold.symbols=1
+#fold.on.open=1
+fold.comment=1
+fold.preprocessor=1
+
+# Find and Replace
+# Internal search always available with recursive capability so use in preference to external tool
+find.command=
+# findstr is available on recent versions of Windows including 2000
+#if PLAT_WIN
+#	find.command=findstr /n /s $(find.what) $(find.files)
+#find.input=$(find.what)
+#if PLAT_GTK
+#	find.command=grep --line-number "$(find.what)" $(find.files)
+
+if USE_CUSTOM_SETTINGS
+	find.command=findstr /n /s /r /c:"$(find.what)" "$(find.directory)\$(find.files)"
+
+find.files=*.c *.cxx *.h
+#find.in.files.close.on.find=0
+#find.in.dot=1
+#find.in.binary=1
+#find.replace.matchcase=1
+#find.replace.escapes=1
+#find.replace.regexp=1
+#find.replace.regexp.posix=1
+#find.replace.wrap=0
+#find.replacewith.focus=0
+#find.replace.advanced=1
+
+if USE_CUSTOM_SETTINGS
+	find.replace.advanced=1
+
+# Behaviour
+#eol.mode=LF
+eol.auto=1
+
+if USE_CUSTOM_SETTINGS
+	eol.auto=0
+
+clear.before.execute=0
+
+if USE_CUSTOM_SETTINGS
+	clear.before.execute=1
+
+#vc.home.key=1
+#wrap.aware.home.end.keys=1
+#autocompleteword.automatic=1
+
+if USE_CUSTOM_SETTINGS
+	autocompleteword.automatic=1
+
+#autocomplete.choose.single=1
+caret.policy.xslop=1
+caret.policy.width=20
+caret.policy.xstrict=0
+caret.policy.xeven=0
+caret.policy.xjumps=0
+caret.policy.yslop=1
+caret.policy.lines=1
+caret.policy.ystrict=1
+caret.policy.yeven=1
+caret.policy.yjumps=0
+#visible.policy.strict=1
+#visible.policy.slop=1
+#visible.policy.lines=4
+#time.commands=1
+#caret.sticky=1
+#properties.directory.enable=1
+
+# Status Bar
+statusbar.number=4
+statusbar.text.1=\
+li=$(LineNumber) co=$(ColumnNumber) $(OverType) ($(EOLMode)) $(FileAttr)
+statusbar.text.2=\
+$(BufferLength) chars in $(NbOfLines) lines. Sel: $(SelLength) chars.
+statusbar.text.3=\
+Now is: Date=$(CurrentDate) Time=$(CurrentTime)
+statusbar.text.4=\
+$(FileNameExt) : $(FileDate) - $(FileTime) | $(FileAttr)
+
+if PLAT_WIN
+	command.scite.help="file://$(SciteDefaultHome)\SciTEDoc.html"
+	command.scite.help.subsystem=2
+if PLAT_GTK
+	command.print.*=a2ps "$(FileNameExt)"
+	command.scite.help=netscape "file://$(SciteDefaultHome)/SciTEDoc.html"
+
+# Internationalisation
+# Japanese input code page 932 and ShiftJIS character set 128
+#code.page=932
+#character.set=128
+# Unicode
+#code.page=65001
+code.page=0
+#character.set=204
+# Required for Unicode to work on GTK+:
+#LC_CTYPE=en_US.UTF-8
+#output.code.page=65001
+
+# Export
+#export.keep.ext=1
+export.html.wysiwyg=1
+#export.html.tabs=1
+#export.html.folding=1
+export.html.styleused=1
+#export.html.title.fullpath=1
+#export.rtf.tabs=1
+#export.rtf.font.face=Arial
+#export.rtf.font.size=9
+#export.rtf.tabsize=8
+#export.rtf.wysiwyg=0
+#export.tex.title.fullpath=1
+# Magnification (added to default screen font size)
+export.pdf.magnification=0
+# Font: Courier, Helvetica or Times (Courier line-wraps)
+export.pdf.font=Helvetica
+# Page size (in points): width, height
+# E.g. Letter 612,792; A4 595,842; maximum 14400,14400
+export.pdf.pagesize=595,842
+# Margins (in points): left, right, top, bottom
+export.pdf.margins=72,72,72,72
+export.xml.collapse.spaces=1
+export.xml.collapse.lines=1
+
+if USE_CUSTOM_SETTINGS
+	xml.auto.close.tags=1
+
+# Define values for use in the imported properties files
+chars.alpha=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+chars.numeric=0123456789
+chars.accented=ŠšŒœŸÿÀàÁáÂâÃãÄäÅåÆæÇçÈèÉéÊêËëÌìÍíÎîÏïÐðÑñÒòÓóÔôÕõÖØøÙùÚúÛûÜüÝýÞþßö
+# This is a better set for Russian:
+#chars.accented=ÀàÁáÂâÃãÄäÅå¨¸ÆæÇçÈèÉéÊêËëÌìÍíÎîÏïÐðÑñÒòÓóÔôÕõÖö×÷ØøÙùÚúÛûÜüÝýÞþßÿ
+
+# The open.filter setting is only used on Windows where the file selector has a menu of filters to apply
+# to the types of files seen when opening.
+# There is a limit (possibly 256 characters) to the length of a filter,
+# so not all source extensions can be in this setting.
+source.files=*.asm;*.c;*.cc;*.cpp;*.cxx;*.cs;*.h;*.hh;*.hxx;*.hpp;\
+*.idl;*.odl;*.rc;*.rc2;*.dlg;*.def;\
+*.vb;*.vbs;*.bas;*.frm;*.cls;*.ctl;\
+*.java;*.js;*.py;*.pl;*.rb;*.cgi;*.lua;*.conf;\
+make*;*.mak;\
+*.properties;*.html;*.xml;*.iface;*.bat;*.e
+
+if PLAT_WIN
+	all.files=All Files (*.*)|*.*|
+if PLAT_GTK
+	all.files=All Files (*)|*|Hidden Files (.*)|.*|
+open.filter=\
+All Source|$(source.files)|\
+$(all.files)\
+$(filter.ada)\
+$(filter.conf)\
+$(filter.asm)\
+$(filter.asn1)\
+$(filter.ave)\
+$(filter.baan)\
+$(filter.bash)\
+$(filter.caml)\
+$(filter.cmake)\
+$(filter.cpp)\
+#$(filter.ch)\
+$(filter.css)\
+$(filter.d)\
+$(filter.eiffel)\
+$(filter.erlang)\
+$(filter.fortran)\
+$(filter.gap)\
+$(filter.idl)\
+$(filter.inno)\
+$(filter.java)\
+$(filter.js)\
+$(filter.kix)\
+$(filter.lout)\
+$(filter.lua)\
+$(filter.matlab)\
+$(filter.metapost)\
+$(filter.mmixal)\
+$(filter.nncrontab)\
+$(filter.nsis)\
+$(filter.opal)\
+$(filter.pascal)\
+$(filter.perl)\
+$(filter.php)\
+$(filter.pov)\
+$(filter.powershell)\
+$(filter.prg)\
+$(filter.properties)\
+$(filter.ps)\
+$(filter.python)\
+$(filter.r)\
+$(filter.ruby)\
+$(filter.sql)\
+$(filter.specman)\
+$(filter.tcl)\
+$(filter.tex)\
+$(filter.text)\
+$(filter.vb)\
+$(filter.web)\
+$(filter.yaml)\
+$(filter.verilog)\
+$(filter.vhdl)
+
+# Give symbolic names to the set of fonts used in the standard styles.
+if PLAT_WIN
+	font.base=font:Verdana,size:10
+	font.small=font:Verdana,size:8
+	font.comment=font:Comic Sans MS,size:9
+	font.code.comment.box=$(font.comment)
+	font.code.comment.line=$(font.comment)
+	font.code.comment.doc=$(font.comment)
+	font.code.comment.nested=$(font.comment)
+	font.text=font:Times New Roman,size:11
+	font.text.comment=font:Verdana,size:9
+	font.embedded.base=font:Verdana,size:9
+	font.embedded.comment=font:Comic Sans MS,size:8
+	font.monospace=font:Courier New,size:10
+	font.vbs=font:Lucida Sans Unicode,size:10
+if PLAT_GTK
+	font.base=font:Trebuchet MS,size:12
+	font.small=font:Trebuchet MS,size:10
+	font.comment=font:Trebuchet MS,size:12
+	font.code.comment.box=$(font.comment)
+	font.code.comment.line=$(font.comment)
+	font.code.comment.doc=$(font.comment)
+	font.code.comment.nested=$(font.comment)
+	font.text=font:!Bitstream Charter,size:10
+	#font.text.comment=font:!Serif,size:9
+	font.text.comment=font:!Serif,size:11
+	#font.embedded.base=font:!Serif,size:9
+	font.embedded.base=font:!Serif,size:11
+	#font.embedded.comment=font:!Serif,size:9
+	font.embedded.comment=font:!Serif,size:11
+	font.monospace=font:FreeMono,size:13
+	font.vbs=font:Trebuchet MS,size:12
+#if USE_CUSTOM_SETTINGS
+#	font.base=$(font.monospace)
+#	font.small=$(font.monospace)
+#	font.comment=$(font.monospace)
+#	font.code.comment.box=$(font.comment)
+#	font.code.comment.line=$(font.comment)
+#	font.code.comment.doc=$(font.comment)
+#	font.code.comment.nested=$(font.comment)
+#	font.text=$(font.monospace)
+#	font.text.comment=$(font.monospace)
+#	font.embedded.base=$(font.monospace)
+#	font.embedded.comment=$(font.monospace)
+#	font.monospace=font:Courier New,size:10
+	#~ font.monospace=font:Bitstream Vera Sans Mono,size:10
+	#~ font.monospace=font:Consolas,size:11
+	font.vbs=$(font.monospace)
+font.js=$(font.comment)
+
+# Old GTK+ font settings are faster but not antialiased
+	#~ font.base=font:lucidatypewriter,size:12
+	#~ font.small=font:lucidatypewriter,size:10
+	#~ font.comment=font:new century schoolbook,size:12
+	#~ font.code.comment.box=$(font.comment)
+	#~ font.code.comment.line=$(font.comment)
+	#~ font.code.comment.doc=$(font.comment)
+	#~ font.text=font:times,size:14
+	#~ font.text.comment=font:lucidatypewriter,size:10
+	#~ font.embedded.base=font:lucidatypewriter,size:12
+	#~ font.embedded.comment=font:lucidatypewriter,size:12
+	#~ font.monospace=font:courier,size:12
+	#~ font.vbs=font:new century schoolbook,size:12
+
+# Give symbolic names to the set of colours used in the standard styles.
+# 6F6F6F - gray 
+# ffffe5 - pale yellow
+# 55FF55 - bright green
+# #000000 - Purple for comments (acme)
+
+
+if USE_CUSTOM_SETTINGS
+	style.*.32=$(font.base),$(style.normal)
+	style.*.33=$(font.base),$(style.linenr)
+	style.*.34=$(style.matchparen)
+	style.*.35=$(style.unmatchparen)
+	style.*.36=
+	style.*.37=$(stlye.indentguides)
+
+# Printing - only works on Windows
+if PLAT_WIN
+	#print.colour.mode=1
+	print.magnification=-1
+	# Setup: left, right, top, bottom margins, in local units:
+	# hundredths of millimeters or thousandths of inches
+	print.margins=1500,1000,1000,1500
+	# Header/footer:
+	# && = &; &p = current page
+	# &f = file name; &F = full path
+	# &d = file date; &D = current date
+	# &t = file time; &T = full time
+	print.header.format=$(FileNameExt) — Printed on $(CurrentDate), $(CurrentTime) — Page $(CurrentPage)
+	print.footer.format=$(FilePath) — File date: $(FileDate) — File time: $(FileTime)
+	# Header/footer style
+	print.header.style=font:Arial,size:12,bold
+	print.footer.style=font:Arial Narrow,size:10,italics
+
+# Warnings - only works on Windows and needs to be pointed at files on machine
+#if PLAT_WIN
+#	warning.findwrapped=100,E:\Windows\Media\SFX\Boing.wav
+#	warning.notfound=0,Effect.wav
+#	warning.wrongfile=0,Glass.wav
+#	warning.executeok=0,Fanfare.wav
+#	warning.executeko=100,GlassBreak.wav
+#	warning.nootherbookmark=100,Boing2.wav
+
+# Define the Lexer menu,
+# Each item contains three parts: menu string | file extension | key
+# The only keys allowed currently are based on F-keys and alphabetic keys and look like
+# [Ctrl+][Shift+][Fn|a] such as F12 or Ctrl+Shift+D.
+# A '&' may be placed before a letter to be used as an accelerator. This does not work on GTK+.
+menu.language=\
+#FreeBasic|bas||\
+Text|txt|Shift+F11|\
+Ada|ads||\
+#Apache Confi&g|conf||\
+Assembler|asm||\
+#ASN.1|asn1||\
+#Avenue|ave||\
+#Baan|bc||\
+&Batch|bat||\
+#Bullant|ant||\
+&C / C++|c||\
+#CMake|cmake||\
+C&#|cs||\
+#Csound|orc||\
+CSS|css||\
+D|d||\
+&Difference|diff||\
+#&Eiffel|e||\
+#Erlang|erl||\
+&Errorlist|err||\
+#FlagShip|prg||\
+#Forth|forth||\
+&Fortran|f90||\
+#Gap|g||\
+H&ypertext|html|F12|\
+#&InnoSetup|iss||\
+&Java|java||\
+Java&Script|js||\
+#&Kix|kix||\
+TeX|tex||\
+Lisp|lisp||\
+#Lot|lot||\
+#Lout|lt||\
+Lu&a|lua||\
+Matlab|m.matlab||\
+&Makefile|mak|Ctrl+Shift+F11|\
+#MetaPost|mp||\
+#MMIXAL|mms||\
+#&nnCron crontab|tab||\
+#NSIS|nsis||\
+#Objective Caml|ml||\
+#Octave|m.octave||\
+#Opal|impl||\
+Pascal|pas||\
+Pe&rl|pl||\
+P&HP|php||\
+#P&LSQL|spec||\
+#P&ostScript|ps||\
+#P&OV-Ray SDL|pov||\
+#PowerShell|ps1||\
+#PowerPro|powerpro||\
+&Properties|properties||\
+Pytho&n|py||\
+#R|R||\
+#Reso&urce|rc||\
+Ruby|rb||\
+Shell|sh||\
+S&QL|sql||\
+#Specman|e||\
+&TCL|tcl||\
+&VB|vb||\
+VBScr&ipt|vbs||\
+#Verilog|v||\
+#VHDL|vhd||\
+&XML|xml|Shift+F12|\
+YAML|yaml||
+
+# User defined key commands
+user.shortcuts=\
+Ctrl+Shift+V|IDM_PASTEANDDOWN|\
+Ctrl+PageUp|IDM_PREVFILE|\
+Ctrl+PageDown|IDM_NEXTFILE|\
+F5|IDM_FIND|\
+Shift+F5|IDM_FINDNEXT|\
+F6|IDM_REPLACE|\
+Shift+F6|IDM_REPLACENEXT|\
+F8|2322|\
+F7|2320|\
+F3|IDM_CLOSE|
+
+
+#KeypadPlus|IDM_EXPAND|\
+#KeypadMinus|IDM_BLOCK_COMMENT|
+
+#user.context.menu=\
+#||\
+#Next File|IDM_NEXTFILE|\
+#Prev File|IDM_PREVFILE|
+
+# Import all the language specific properties files
+#import abaqus
+#~ import ada
+#~ import asm
+#import asn1
+#import au3
+#~ import ave
+#~ import baan
+#import freebasic
+#import blitzbasic
+#import bullant
+#~ import caml
+#~ import conf
+import cpp
+#import cmake
+#~ import d
+#import csound
+#~ import css
+#~ import eiffel
+#~ import erlang
+#~ import escript
+#import flagship
+#import forth
+#~ import fortran
+#import gap
+import html
+#import inno
+#import kix
+#~ import lisp
+#~ import lot
+#import lout
+#~ import lua
+#~ import matlab
+#~ import metapost
+#~ import mmixal
+#import nimrod
+#import nncrontab
+#import nsis
+#import opal
+import others
+#~ import pascal
+#~ import perl
+#~ import pov
+#import powerpro
+#import powershell
+#~ import ps
+#import purebasic
+import python
+#import r
+#import rebol
+#~ import ruby
+#import scriptol
+#import smalltalk
+#import spice
+import sql
+#import specman
+#~ import tcl
+#~ import tex
+#~ import vb
+#~ import yaml
+#import verilog
+#import vhdl
+
+if USE_CUSTOM_SETTINGS
+	command.compile.*.cpp=cmd /u /c "c:\dex\settings.cmd > NUL&&cd \dex\build&&make -f ..\bl.mk -I.. $(FileName).obj"
+	command.build.*.cpp=cmd /u /c "c:\dex\settings.cmd > NUL&&cd \dex\build&&make -f ..\bl.mk -I.. $(FileName).test"

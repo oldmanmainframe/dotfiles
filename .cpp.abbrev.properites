@@ -1,0 +1,7 @@
+cl=public class |
+if=if (|) {\n\n}\n
+for=for (|;;) {\n\n}\n
+wh=while(|) {\n\n}\n
+do=do {|\n\n\n} while();
+ife=if (|) {\n\n} else {\n\n}\n
+swi=switch (|) {\n    case \n      break;\n}\n

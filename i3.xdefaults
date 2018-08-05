@@ -1,0 +1,7 @@
+! The settings
+! Rofi setup
+!State              backg    foreg    bgalt    hlbg     hlfg
+rofi.color-normal:  #000000, #55ffff, #000000, #000000, #ffffff
+rofi.color-urgent:  #aaaaaa, #ff5555, #aaaaaa, #ffffff, #aa0000
+rofi.color-active:  #000000, #00ff00, #000000, #000000, #ffffff
+rofi.color-window:  #000000, #55ff55

@@ -1,0 +1,48 @@
+/* THE - rexx macro to handle tab and shift tab keys */
+/*
+    update: 2018-07-25: added code to get this to work on the Linux console
+    Requires the below mod to /etc/rc.local
+ 
+    Query if the shift key was pressed with the tab key in order to implement
+    the backtab code.
+ 
+    Note: requires the following in /etc/rc.local to get Shift-Tab to work
+    in the linux console:
+ 
+    loadkeys - <<EOF
+    Shift keycode 15 = F100 # Shift-Tab
+    string F100 = "\033[Z"
+    EOF
+ 
+    Shift keycode 15 = F100# Shift-Tab
+    from the showkey command, a tab is a 15 so we are changing the
+        Shift+tab to F100
+    F100 becames a back-tab . . . as the ESC (\033) [Z is a back tab
+ 
+*/
+ 
+'extract /lastkey/'
+key = lastkey.1
+shift = substr(lastkey.4, 7, 1) /* get shift key status */
+if key = 'TAB' & shift  = 1 then
+    key = 'S-TAB'
+ 
+/*
+msg shift
+msg key
+*/
+if key = 'TAB' then do
+    if inprefix() then
+        'cursor prefix'
+    else
+        'sos instab'
+end
+ 
+if key = 'S-TAB' then do
+    if inprefix() then
+        'sos prefix'
+    if leftedge() then
+        'cursor prefix'
+    else
+        'sos tabb'
+end

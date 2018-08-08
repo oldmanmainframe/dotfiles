@@ -1,0 +1,5 @@
+/* the rexx macro - handle shfit-tab key */
+if leftedge() then
+    'cursor prefix'
+else 
+    'sos tabb'

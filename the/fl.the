@@ -1,0 +1,59 @@
+/**-----------------------------------------**
+   Name: ml.the
+   Author: Scott Mattes, I-Net <smattes@INTERSERF.NET>
+   Date:   96/11/15
+ 
+   I believe this macro to be in the public
+   domain since I wrote it while on a U.S.
+   contract.
+ 
+   To simulate, and go alittle farther, the
+   cl /string target/ command that isn't
+   complete in THE. This saves me much time
+   over using the arrow keys.
+ 
+   Locates the line the target is in and then
+   place the cursor at the beginning of the
+   target.
+ 
+   If anything is on the command line at the
+   time of execution, then that is used as
+   the target; otherwise the user is prompted
+   for the target.
+ 
+   The search starts at either the line the
+   cursor is on or the focus line, depending.
+ 
+    Updated: 2018-07-25 Added parse arg target to allow for use as a command
+    line macro. cmdline.3 is assigned to target if target is not null, else
+    prompt for a target on the command line
+ 
+ **-----------------------------------------**/
+parse arg target
+'msg' target
+'extract /cmdline/'
+/* if cmdline.3 = '' */
+if target = '' then do
+   'emsg Enter the target'
+   'readv cmdline'
+   if readv.1 = '' then exit
+       cmdline.3 = readv.1
+end
+else
+   cmdline.3 = target
+ 
+/* issue a locate commnad for the target */
+'l /'cmdline.3'/'
+if rc <> 0 then exit rc
+ 
+/* get contents of current line and it's line number */
+'extract /curline/line/'
+col = pos(cmdline.3,curline.3) /* where in the line is the target */
+ 
+/*
+'cmsg' left(' ',length(cmdline.3))
+'hit c-m'
+*/
+ 
+/* finally, set the cursor */
+'cursor file' line.1 col

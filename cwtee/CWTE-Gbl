@@ -1,0 +1,74 @@
+# ----- CWTE-Gbl -------------------------------------- 17JUL11A ------*
+#
+# For default key assignments, see help file: DEFAULT_FKEY_ASSIGNMENTS
+#
+# Options To Sort The FLIST Window......
+  cFKey09=reload!sort date d
+  cFKey10=reload!sort file a
+  FKey02=edit
+  FKey07=UP
+  FKey08=DOWN
+  FKey10=LEFT
+  FKey11=RIGHT
+  sFKey10=RINGL
+  sFKey11=RINGR
+#
+# Hot Keys For Updating CWTE Profile Settings......
+  sFKey03=setprof
+* sFKey04=setprof Option=TextFG:Lgreen Option=TextBG:Black
+#
+# Hot Keys For Turning On/Off Right Edge Text Wrapping......
+  cFKey05=rcWrap Yes!dpaste off
+  cFKey06=rcWrap No !dpaste off
+#
+# Use Unix spell checker via shell.....
+* sFKey09=dsc spellChk "%1%"
+#
+# ---------------------------------------------------------------------*
+#
+* IncFiles=1                        # { 0x01=hidden, 0x02=system }
+* Delim=%                           # { ! | # | $ | % | ; }
+* rcWrap=Y                          # { Y[ES] | N[O] }
+* tfSpace=1                         # { 1 | 2 } character spaces
+* HideProf=0                        # 1=hide, 0=unhide CWTE-Dir file
+* setBeep=OFF                       # { ON | OFF }
+* sortdir=m                         # Sort directory in FList
+* scroll=0                          # Page up/down amount (cursor)
+* TabSet=1       2       3       4
+* HelpFile= H C:\CWTE-Ref\CWTE-Help.txt
+* HelpFile= O C:\CWTE-Ref\CWTE-OVue.txt
+* Donate=Donated
+#
+# ---------------------------------------------------------------------*
+#
+* Option= WinOffs : -1+0            # Win Offset +horz +vert edges
+  Option= SetCols : 72              # Number of visible text cols
+  Option= SetRows : 48              # Number of visible text rows
+* Option=TossKey:Y                  # Toss when auto repeating keys
+#
+# ---------------------------------------------------------------------*
+# Blank out the '*' in column one below for a different color set.
+#
+* Option= TextBG : White    (Black) # Text area background
+* Option= TrimBG : White    (Black) # Trim area background
+* Option= LcmdBG : White    (Black) # Line cmd background
+#
+* Option= TextFG : Blue     (White) # Text area foreground
+#
+* Option= FlstFG : Cyan     (White) # Flst area foreground
+#
+* Option= PcmdFG : Black    (White) # Primary cmd foreground
+#
+Option= TxHiFG : Cyan     (Black) # Text area HiLite foreground
+* Option= TxHiBG : Brown    (White) # Text area HiLite background
+#
+Option= LcmdFG : LGreen   (White) # Line cmd foreground
+? Option= LcHiFG : Magenta  (Grey)  # Line cmd HiLite foreground
+* Option= LcHiFG : Black    (Grey)  # Line cmd HiLite foreground
+? Option= LcHiFG : Red      (Grey)  # Line cmd HiLite foreground
+#
+Option= TrimFG : LCyan    (White) # Trim area foreground
+#
+* Option= TmsgFG : Magenta  (Grey)  # Trim msg area foreground
+#
+# ---------------------------------------------------------------------*

@@ -1,0 +1,5 @@
+/* the rexx macro - handle tab key */
+if inprefix() then
+    'cursor prefix'
+else 
+    'sos tabf'

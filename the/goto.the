@@ -1,0 +1,14 @@
+/**-----------------------------------------**
+ 
+ **-----------------------------------------**/
+parse arg line col
+
+/* if only one argument, assume current line as line target */
+if col = '' then do
+    'extract /line/'
+    col = line
+    line = line.1
+end
+
+/* 'msg ' line col */
+'cursor goto ' line col

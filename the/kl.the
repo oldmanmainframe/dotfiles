@@ -1,0 +1,7 @@
+/* THE - rexx macro */
+/* 2018-07-25: rename from sl to kl (Kurrent Line) */
+ 
+parse arg line
+ 
+'cursor goto ' line 1
+'sos makecurr'

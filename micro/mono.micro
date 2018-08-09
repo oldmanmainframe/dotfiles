@@ -1,0 +1,4 @@
+color-link identifer "bold"
+color-link statement "bold"
+color-link type "bold"
+color-link comment "magenta"

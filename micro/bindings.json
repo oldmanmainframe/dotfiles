@@ -1,0 +1,14 @@
+{
+    "F1": "Help",
+    "F2": "HSplit",
+    "F3": "Quit",
+    "F5": "Find",
+    "ShiftF5": "FindNext",
+    "F6":  "replace",
+    "F7":   "CursorPageUp",
+    "F8":   "CursorPageDown",
+    "F9":   "NextSplit",
+    "F10":  "WordLeft",
+    "F11":  "WordRight",
+    "F12": "CommandMode"
+}

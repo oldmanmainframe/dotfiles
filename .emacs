@@ -1,4 +1,30 @@
 ;; ---------------------------------------------------------------------------
+;;Bookmarks-----------------------------------
+;; C-x r m ('make') will create a new bookmark, defaulting to the current file.
+;; Jump to an existing bookmark with C-x r b ('bookmark')
+;; You can see the list of your bookmarks with C-x r l ('list').
+(setq
+  bookmark-default-file "~/.emacs.d/bookmarks" ;; keep ~/ clean from .files
+  bookmark-save-flag 1)                        ;; auto save changes
+;;--------------------------------------------
+;;find-file-at-point, smarter C-x C-f when point on path or URL
+(ffap-bindings)
+
+;;nuke-all-buffers-----------------------------
+(defun nuke-all-buffers ()
+"Kill all buffers, leaving *scratch* only."
+(interactive)
+(mapc (lambda (x) (kill-buffer x)) (buffer-list)) (delete-other-windows))
+;;---------------------------------------------
+
+(ido-mode 'buffers)
+
+(setq frame-title-format '(buffer-file-name "%f" ("%b"))) ;;titlebar=buffer unless filename
+
+(require 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
+(setq ibuffer-expert t)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
@@ -298,19 +324,20 @@
 ;; ---------------------------------------------------------------------------
 ;; set my default font . . .
 ;; ---------------------------------------------------------------------------
-;;(set-default-font "IBM Plex Mono Text 11")
-;;set-default-font "IBM 3270 14")
-(set-face-attribute 'default nil :font  "IBM 3270 12")
-;;(set-default-font "Terminus-12")
-;;(set-default-font "Fixed-11")
-;;(set-default-font "Verily Serif Mono-10")
-;;(set-default-font "Bitstream Vera Sans Mono-11")
-;;(set-default-font "Monaco-11")
-;;(set-default-font "Ubuntu Mono-12")
-;;(set-default-font "Terminus-13")
-
+(if (display-graphic-p)
+	(progn
+	  ;;(set-default-font "IBM Plex Mono Text 11")
+	  ;;set-default-font "IBM 3270 14")
+	  ;;(set-face-attribute 'default nil :font  "IBM 3270 14")
+	  ;;(set-default-font "Terminus-12")
+	  ;;(set-default-font "Fixed-11")
+	  ;;(set-default-font "Verily Serif Mono-10")
+	  ;;(set-default-font "Bitstream Vera Sans Mono-11")
+	  ;;(set-default-font "Monaco-11")
+	  ;;(set-default-font "Ubuntu Mono-12")
+	  ;;(set-default-font "Terminus-13")
+))
 ;;"-outline-Consolas-normal-r-normal-normal-9-*-*-*-c-*-*-1")
-
 ;; ---------------------------------------------------------------------------
 ;; Give me insanely great and efficient buffer switching.
 ;; ---------------------------------------------------------------------------
@@ -350,7 +377,7 @@
 ;; ---------------------------------------------------------------------------
 (if (display-graphic-p)
 	(progn
-	  (set-background-color "#000000")
+	  	  (set-background-color "#000000")
 		(set-face-background 'default "#000000")
 		(set-face-background 'region "#55ff55")
 		(set-face-foreground 'default "#55ff55")
@@ -366,9 +393,9 @@
         (set-face-attribute 'modeline-inactive nil
             :foreground "#aaaaaa" :background "black"
             :box "#00aa00"))
-		;; else
+	  	;; else
 	(progn
-		(set-background-color "black")
+	   	(set-background-color "black")
 		(set-face-background 'default "black")
 		(set-face-background 'region "white")
 		(set-face-foreground 'default "green")
@@ -381,12 +408,23 @@
             :foreground "gray"
             :background "cyan")))
 
-(set-face-foreground 'header-line "yellow")
-(set-face-background 'menu "yellow")
+(add-hook 'before-make-frame-hook
+    #'(lambda ()
+        (fringe-mode 1)
+        (set-face-attribute 'mode-line nil
+            :foreground "#ffffff"
+            :background "black"
+            :box '(:line-width 2 :color "#55ffff"))
+        (set-face-attribute 'modeline-inactive nil
+            :foreground "#aaaaaa" :background "black"
+            :box "#00aa00")))
+
+(set-face-foreground 'header-line "#000000")
+(set-face-background 'menu "#00aaaa")
 (set-face-foreground 'menu "black")
-(set-face-foreground 'border "yellow")
+(set-face-foreground 'border "#00aaaa")
 (set-face-background 'fringe "#00aaaa")
-(fringe-mode 4)
+(fringe-mode 1)
 (set-face-foreground 'minibuffer-prompt  "cyan")
 ;; end add color to different elements . .
 (set-cursor-color "white")

@@ -1,4 +1,34 @@
 ;; ---------------------------------------------------------------------------
+
+(defun set-frame-size-according-to-resolution ()
+  (interactive)
+  (if (display-graphic-p)
+  (progn
+    ;; use 120 char wide window for largeish displays
+    ;; and smaller 80 column windows for smaller displays
+    ;; pick whatever numbers make sense for you
+    (if (> (x-display-pixel-width) 1280)
+           (add-to-list 'default-frame-alist (cons 'width 100))
+           (add-to-list 'default-frame-alist (cons 'width 80)))
+    ;; for the height, subtract a couple hundred pixels
+    ;; from the screen height (for panels, menubars and
+    ;; whatnot), then divide by the height of a char to
+    ;; get the height we want
+    (add-to-list 'default-frame-alist 
+         (cons 'height (/ (- (x-display-pixel-height) 200)
+                             (frame-char-height)))))))
+
+(set-frame-size-according-to-resolution)
+
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)
+;; open a new frame
+;;(add-hook 'server-switch-hook
+;;   (lambda nil
+;;     (let ((server-buf (current-buffer)))
+;;       (bury-buffer)
+;;       (switch-to-buffer-other-frame server-buf))))
+
+(setq frame-title-format '(buffer-name "%f" ("%b"))) 
 ;;Bookmarks-----------------------------------
 ;; C-x r m ('make') will create a new bookmark, defaulting to the current file.
 ;; Jump to an existing bookmark with C-x r b ('bookmark')
@@ -12,9 +42,9 @@
 
 ;;nuke-all-buffers-----------------------------
 (defun nuke-all-buffers ()
-"Kill all buffers, leaving *scratch* only."
-(interactive)
-(mapc (lambda (x) (kill-buffer x)) (buffer-list)) (delete-other-windows))
+  "Kill all buffers, leaving *scratch* only."
+  (interactive)
+  (mapc (lambda (x) (kill-buffer x)) (buffer-list)) (delete-other-windows))
 ;;---------------------------------------------
 
 (ido-mode 'buffers)
@@ -244,7 +274,7 @@
 (setq icon-title-format  "%f - Emacs")
 
 (setq message-log-max nil)
-(kill-buffer "*Messages*")
+;;(kill-buffer "*Messages*")
 
 (setq display-time-24hr-format t)
 
@@ -259,8 +289,8 @@
 
 (global-set-key [home] 'beginning-of-line)
 (global-set-key [end] 'end-of-line)
-(global-set-key [\C-home] 'beginning-of-buffer)
-(global-set-key [\C-end] 'end-of-buffer)
+(global-set-key [C-home] 'beginning-of-buffer)
+(global-set-key [C-end] 'end-of-buffer)
 
 (autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
 (setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
@@ -276,15 +306,15 @@
 
 (setq win32-pass-alt-to-system t)
 (setq default-frame-alist
-      (append default-frame-alist
-              '((width . 85)
-                (height . 35)
-                )
-              ))
+      '((width . 117)
+        (height . 44)))
+(setq initial-frame-alist
+	  '((width . 117)
+      (height . 44)))
 
 (setq win32-pass-alt-to-system t)
-(global-set-key [f5] 'replace-string)
-(global-set-key [f6] 'goto-line)
+;(global-set-key [f5] 'replace-string)
+;(global-set-key [f6] 'goto-line)
 (autoload 'follow-mode "follow"
     "Synchronize windows showing the same buffer, minor mode." t)
 
@@ -322,10 +352,10 @@
          tab-width 4)))
 
 ;; ---------------------------------------------------------------------------
-;; set my default font . . .
+;; set my default font . . . now set by emacs-server startup
 ;; ---------------------------------------------------------------------------
-(if (display-graphic-p)
-	(progn
+;(if (display-graphic-p)
+;	(progn
 	  ;;(set-default-font "IBM Plex Mono Text 11")
 	  ;;set-default-font "IBM 3270 14")
 	  ;;(set-face-attribute 'default nil :font  "IBM 3270 14")
@@ -336,7 +366,7 @@
 	  ;;(set-default-font "Monaco-11")
 	  ;;(set-default-font "Ubuntu Mono-12")
 	  ;;(set-default-font "Terminus-13")
-))
+;))
 ;;"-outline-Consolas-normal-r-normal-normal-9-*-*-*-c-*-*-1")
 ;; ---------------------------------------------------------------------------
 ;; Give me insanely great and efficient buffer switching.
@@ -357,7 +387,7 @@
 (global-set-key [f6]         'replace-regexp)
 (global-set-key [f7]         'scroll-down)
 (global-set-key [f8]         'scroll-up)
-(global-set-key [f9]	     	  'next-buffer)
+(global-set-key [f9]	     'next-buffer)
 (global-set-key [f11]        'other-window)
 ;;(global-set-key [f12]        'other-window)
 
@@ -377,7 +407,8 @@
 ;; ---------------------------------------------------------------------------
 (if (display-graphic-p)
 	(progn
-	  	  (set-background-color "#000000")
+	    (set-default-font "IBM 3270 12")
+	  	(set-background-color "#000000")
 		(set-face-background 'default "#000000")
 		(set-face-background 'region "#55ff55")
 		(set-face-foreground 'default "#55ff55")
@@ -410,7 +441,9 @@
 
 (add-hook 'before-make-frame-hook
     #'(lambda ()
-        (fringe-mode 1)
+        ;;(fringe-mode nil)
+		(set-frame-size-according-to-resolution)
+		(set-fringe-mode '(0 . 0))
         (set-face-attribute 'mode-line nil
             :foreground "#ffffff"
             :background "black"
@@ -424,7 +457,8 @@
 (set-face-foreground 'menu "black")
 (set-face-foreground 'border "#00aaaa")
 (set-face-background 'fringe "#00aaaa")
-(fringe-mode 1)
+;(fringe-mode nil)
+(set-fringe-mode '(0 . 0))
 (set-face-foreground 'minibuffer-prompt  "cyan")
 ;; end add color to different elements . .
 (set-cursor-color "white")
@@ -460,15 +494,17 @@
  '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#55ff55"))))
  '(menu ((((type x-toolkit)) (:height 0.75 :width normal))))
  '(speedbar-button-face ((((class color) (background light)) (:foreground "green4" :height 1.0)))))
-;;--(require 'oneonone)
-;;--(setq default-frame-alist  nil)
-;;--(setq initial-frame-alist  '((background-color . "White"))); e.g.
-;;--(remove-hook 'same-window-regexps "\\*info\\*\\(\\|<[0-9]+>\\)")
-;;--(remove-hook 'same-window-regexps "\\`\\*Customiz.*\\*\\'")
-;;--(define-key minibuffer-local-map "\C-o"
-;;--    '1on1-fit-minibuffer-frame)
-;;--(define-key minibuffer-local-must-match-map "\C-o"
-;;--    '1on1-fit-minibuffer-frame)
-;;--(define-key minibuffer-local-completion-map "\C-o"
-;;--    '1on1-fit-minibuffer-frame)
-;;--(1on1-emacs)
+;;
+(setq-default mode-line-format
+      (list
+      ;; value of `mode-name'
+      "%m: "
+      ;; value of current buffer name
+      "buffer %b, "
+      ;; value of current line number
+      "line %l "
+      ;; value of current column
+      "- col %c "
+      "-- user: "
+      ;; value of user
+      (getenv "USER")))

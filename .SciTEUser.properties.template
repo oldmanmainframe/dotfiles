@@ -60,7 +60,8 @@ colour.notused=back:$(BACKCOLOR)
 
 #colour.number=fore:#55FF55,bold
 colour.number=fore:$(FORECOLOR)
-colour.keyword=fore:$(KWCOLOR),bold,italics
+#colour.keyword=fore:$(KWCOLOR),bold,italics
+colour.keyword=fore:$(KWCOLOR),bold
 #colour.keyword=fore:#00FF00,bold
 #colour.string=fore:#55FF55
 colour.string=fore:$(FORECOLOR)
@@ -72,11 +73,11 @@ colour.preproc=back:$(BACKCOLOR)
 colour.error=fore:#FFFF00,back:#FF0000
 
 # Global default styles for all languages
-font.small=size:12
+font.small=size:8
 # default
 style.*.32=fore:$(FORECOLOR),back:$(BACKCOLOR),$(font.base)
 # line numbers in the margin
-style.*.33=fore:$(FORECOLOR),back:$(BACKCOLOR),$(font.base)
+style.*.33=fore:$(FORECOLOR),back:$(BACKCOLOR),$(font.base),size:10
 # display matching braces
 style.*.34=fore:#FF0000,$(font.base),bold
 # display non-matching braces
@@ -88,7 +89,7 @@ style.*.36=
 style.*.37=fore:#FFFF00,back:#FFFFFF,$(font.base)
 # calltip
 #style.*.38=fore:#0066ff,back:#FFFFFF,$(font.base)
-style.*.38=fore:#0066ff,back:#FFFFFF,$(font.base)
+style.*.38=fore:#00ff00,back:#FFFFFF,$(font.base)
 # Globals
 
 # Window sizes and visibility
@@ -156,8 +157,8 @@ if USE_CUSTOM_SETTINGS
 #output.magnification=-1
 
 # Sizes and visibility in edit pane
-line.margin.visible=0
-#line.margin.width=4
+line.margin.visible=1
+line.margin.width=2+
 #margin.width=16
 #fold.margin.width=16
 #fold.margin.colour=#FF0000
@@ -178,9 +179,9 @@ if USE_CUSTOM_SETTINGS
 #view.eol=1
 #control.char.symbol=.
 caret.period=500
-view.#FFFFFFspace=0
-view.indentation.#FFFFFFspace=1
-view.indentation.guides=1
+view.whitespace=0
+view.indentation.whitespace=1
+view.indentation.guides=0
 view.indentation.examine=3
 highlight.indentation.guides=1
 caret.width=3
@@ -400,7 +401,7 @@ caret.policy.yjumps=0
 # Status Bar
 statusbar.number=4
 statusbar.text.1=\
-li=$(LineNumber) co=$(ColumnNumber) $(OverType) ($(EOLMode)) $(FileAttr)
+li=$(LineNumber) co=$(ColumnNumber) $(OverType) ($(EOLMode)) $(FileAttr) Filename: $(FileNameExt)
 statusbar.text.2=\
 $(BufferLength) chars in $(NbOfLines) lines. Sel: $(SelLength) chars.
 statusbar.text.3=\
@@ -424,8 +425,8 @@ if PLAT_GTK
 code.page=0
 #character.set=204
 # Required for Unicode to work on GTK+:
-#LC_CTYPE=en_US.UTF-8
-#output.code.page=65001
+LC_CTYPE=en_US.UTF-8
+output.code.page=65001
 
 # Export
 #export.keep.ext=1
@@ -682,6 +683,7 @@ user.shortcuts=\
 Ctrl+Shift+V|IDM_PASTEANDDOWN|\
 Ctrl+PageUp|IDM_PREVFILE|\
 Ctrl+PageDown|IDM_NEXTFILE|\
+F4|IDM_CLOSEALL|\
 F5|IDM_FIND|\
 Shift+F5|IDM_FINDNEXT|\
 F6|IDM_REPLACE|\
@@ -765,3 +767,10 @@ import sql
 if USE_CUSTOM_SETTINGS
 	command.compile.*.cpp=cmd /u /c "c:\dex\settings.cmd > NUL&&cd \dex\build&&make -f ..\bl.mk -I.. $(FileName).obj"
 	command.build.*.cpp=cmd /u /c "c:\dex\settings.cmd > NUL&&cd \dex\build&&make -f ..\bl.mk -I.. $(FileName).test"
+
+ext.lua.startup.script=$(SciteUserHome)/startup.lua
+command.name.12.*=Start se editor
+command.subsystem.12.*=3
+command.12.*=EditWithse
+command.mode.12.*=savebefore:no
+command.shortcut.12.*=F12

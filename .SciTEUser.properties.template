@@ -180,9 +180,10 @@ if USE_CUSTOM_SETTINGS
 #control.char.symbol=.
 caret.period=500
 view.whitespace=0
-view.indentation.whitespace=1
-view.indentation.guides=0
-view.indentation.examine=3
+view.indentation.whitespace=0
+view.indentation.guides=1
+view.indentation.examine=1
+#view.indentation.examine=3
 highlight.indentation.guides=1
 caret.width=3
 #caret.line.back=#FFFED8
@@ -769,8 +770,15 @@ if USE_CUSTOM_SETTINGS
 	command.build.*.cpp=cmd /u /c "c:\dex\settings.cmd > NUL&&cd \dex\build&&make -f ..\bl.mk -I.. $(FileName).test"
 
 ext.lua.startup.script=$(SciteUserHome)/startup.lua
+
 command.name.12.*=Start se editor
 command.subsystem.12.*=3
 command.12.*=EditWithse
 command.mode.12.*=savebefore:no
 command.shortcut.12.*=F12
+
+command.name.13.*=Join two lines
+command.subsystem.13.*=3
+command.13.*=joinEm
+command.mode.13.*=savebefore:no
+command.shortcut.13.*=Ctrl+J

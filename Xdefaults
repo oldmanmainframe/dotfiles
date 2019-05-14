@@ -1,0 +1,42 @@
+! The settings
+! Rofi setup
+!State              backg    foreg    bgalt    hlbg     hlfg
+rofi.color-normal:  #000000, #55ffff, #000000, #000000, #ffffff
+rofi.color-urgent:  #aaaaaa, #ff5555, #aaaaaa, #ffffff, #aa0000
+rofi.color-active:  #000000, #00ff00, #000000, #000000, #ffffff
+rofi.color-window:  #000000, #55ff55
+!URxvt.font:	xft:liberation mono:size=10:antialias=true
+!URxvt.boldFont:	xft:liberation mono:bold:size=10:antialias=true
+URxvt.font:	xft:Terminus:size=10:antialias=true
+URxvt.boldFont:	xft:Terminus:bold:size=10:antialias=true
+
+XTerm*vt100.geometry: 85x30
+XTerm*cursorColor:   #66399
+XTerm*Background:		#ffffea
+XTerm*Foreground:		#000000
+XTerm*fullCursor:    true
+XTerm*scrollBar:     true
+XTerm*saveLines:     1000
+XTerm*loginShell:    true
+XTerm*allowBoldFonts: true
+XTerm*boldMode:		true
+!XTerm*verBoldColors: 4
+
+XTerm*faceName: 	xft:Terminus:size=10:antialias=false
+XTerm*faceSize:	    8
+XTerm*faceSize1:	6
+XTerm*faceSize2:	10
+XTerm*faceSize3:	12
+XTerm*faceSize4:	14
+XTerm*faceSize5:	20
+XTerm*faceSize6:	22
+
+xedit*font:  -misc-liberation mono-medium-r-normal--10-0-0-0-m-0-iso8859-1
+
+XClock*foreground: red
+XClock*background: black
+XClock.Clock.hourColor: red
+XClock.Clock.minuteColor: red
+XClock.Clock.secondColor: red
+XClock.Clock.majorColor: red
+XClock.Clock.minorColor: red

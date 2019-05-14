@@ -158,12 +158,46 @@
 ;; ---------------------------------------------------------------------------
 ;; Setting the defualt tabulation
 ;; ---------------------------------------------------------------------------
-(setq default-tab-width 4)
+(setq custom-tab-width 4)
+;;(setq default-tab-width 4)
 ;; no more tab characters!!
 ;; okay, SOME files (makefiles, Blackboard test files) REALLY need tabs
 ;; so I can't use the following . . .
 ;; but remember . . . the "untabify" command.
 ;;(setq-default indent-tabs-mode nil)
+(defun disable-tabs () (setq indent-tabs-mode nil))
+(defun enable-tabs () 
+    (local-set-key (kbd "TAB") 'tab-to-tab-stop)
+    (setq indent-tabs-mod t)
+    (setq tab-width custom-tab-width))
+
+;; Hooks to enable tabs
+(add-hook 'prog-mode-hook 'enable-tabs)
+;; Hoos to disable tabs . . .
+(add-hook 'list-mode-hook 'disable-tabs)
+(add-hook 'emacs-lisp-mode-hook 'disable-tabs)
+
+;; language specific tweaks (but look further down as well . . .
+(setq-default python-indent-offset custom-tab-width) ;; for python 
+(setq-default js-indent-level custom-tab-width)      ;; it's javascript
+
+;; tame "electric-indent ??
+(setq-default electric-indent-inhibit t)
+
+;; make backspace sane 
+(setq backbard-delete-char-untabify-method 'hungry)
+
+;; for evil mode (vi setup . . .)
+(setq-default evil-shift-width custom-tab-width)
+
+;; show tabs . . .
+(setq whitespace-style '(face tabs tab-mark trailing))
+(custom-set-faces
+    '(whitespace-tab ((t (:forground "#008b8b")))))
+(setq whitespace-display-mappings
+    '((tab-mark 9 [124 9] [92 9]))) ; 124 is ascii for '|'
+(global-whitespace-mode) ; enable whitespace mode everywhere
+
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;; ---------------------------------------------------------------------------
@@ -392,8 +426,10 @@
 ;; ---------------------------------------------------------------------------
 (if (display-graphic-p)
 	(progn
-	  	(set-background-color "#000000")
-		(set-face-background 'default "#000000")
+	  	;(set-background-color "#000000")
+	  	(set-background-color "#ffffe5")
+		;(set-face-background 'default "#000000")
+		(set-face-background 'default "#ffffe5")
 		(set-face-background 'region "#AAAAAA")
 		(set-face-foreground 'default "#AAAAAA")
 		;;(set-face-background 'region "#55ff55")
@@ -414,9 +450,11 @@
             :box "#00aa00"))
 	  	;; else
 	(progn
-	   	(set-background-color "black")
+	   	;(set-background-color "black")
+	   	(set-background-color "lightyellow")
 		(set-face-background 'default "black")
 		(set-face-background 'region "white")
+		(set-face-foreground 'default "black")
 		(set-face-foreground 'default "gray")
 		;(set-face-foreground 'default "green")
 		(set-face-foreground 'region "gray")
@@ -474,16 +512,26 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 122 :width normal))))
  '(custom-button ((((type x w32 ns) (class color)) (:background "lightgrey" :foreground "black" :box (:line-width 2 :style released-button) :height 0.5))))
- '(custom-comment-tag ((t (:foreground "#55ffff"))))
- '(font-lock-builtin-face ((t (:foreground "#AAAAAA"))))
- '(font-lock-comment-face ((t (:foreground "#55ffff"))))
- '(font-lock-constant-face ((t (:foreground "#AAAAAA"))))
- '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
- '(font-lock-keyword-face ((((class color) (min-colors 88) (background light dark)) (:foreground "#ffffff" :weight bold))))
- '(font-lock-preprocessor-face ((t (:foreground "#AAAAAA" :weight bold))))
- '(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
- '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA" :weight bold))))
- '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
+ ;'(custom-comment-tag ((t (:foreground "#55ffff"))))
+ '(custom-comment-tag ((t (:foreground "#663399"))))
+ ;'(font-lock-builtin-face ((t (:foreground "#AAAAAA"))))
+ '(font-lock-builtin-face ((t (:foreground "#000000"))))
+ '(font-lock-comment-face ((t (:foreground "#663399"))))
+ ;'(font-lock-comment-face ((t (:foreground "#55ffff"))))
+ '(font-lock-constant-face ((t (:foreground "#000000"))))
+ ;'(font-lock-constant-face ((t (:foreground "#AAAAAA"))))
+ '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#000000"))))
+ ;'(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
+ '(font-lock-keyword-face ((((class color) (min-colors 88) (background light dark)) (:foreground "#000000" :weight bold))))
+ ;'(font-lock-keyword-face ((((class color) (min-colors 88) (background light dark)) (:foreground "#ffffff" :weight bold))))
+ ;'(font-lock-preprocessor-face ((t (:foreground "#AAAAAA" :weight bold))))
+ '(font-lock-preprocessor-face ((t (:foreground "#000000" :weight bold))))
+ ;'(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
+ '(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "#000000"))))
+ ;'(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA" :weight bold))))
+ '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "#000000" :weight bold))))
+ ;'(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
+ '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#000000"))))
  '(menu ((((type x-toolkit)) (:height 0.75 :width normal))))
  '(speedbar-button-face ((((class color) (background light)) (:foreground "green4" :height 1.0)))))
 ;;
@@ -500,3 +548,7 @@
       "-- user: "
       ;; value of user
       (getenv "USER")))
+
+(add-to-list 'default-frame-alist '(foreground-color . "black"))
+(add-to-list 'default-frame-alist '(background-color . "#ffffe5"))
+

@@ -9,7 +9,8 @@ font.quality=2
 
 if WHITEGRAY
 	FORECOLOR=#FFFFFF
-	BACKCOLOR=#8c8c8c
+	#BACKCOLOR=#8c8c8c
+    BACKCOLOR=#726e6d
 	COMCOLOR=#000000
 	CARECOLOR=#0000FF
 	selection.fore=#FFFFFF
@@ -17,7 +18,8 @@ if WHITEGRAY
 if ACME
 	FORECOLOR=#000000
 	BACKCOLOR=#FFFFE5
-	COMCOLOR=#800080
+	#COMCOLOR=#800080
+	COMCOLOR=#663399
 	CARECOLOR=#800080
 	selection.fore=#FFFFE5
 	selection.back=#000000
@@ -32,10 +34,11 @@ if ACME_GREENBLACK
 	selection.back=#00FF00
 if ACME_GREENGRAY
 	FORECOLOR=#00FF7F
-	BACKCOLOR=#8C8C8C
+	#BACKCOLOR=#8C8C8C
+    BACKCOLOR=#726e6d
 	COMCOLOR=#FFFFFF
 	CARECOLOR=#00FF7F
-	selection.fore=#8c8c8c
+	selection.fore=#726e6d
 	selection.back=#00FF7F
 if ACME_AMBER
 	FORECOLOR=#FF9900
@@ -45,6 +48,7 @@ if ACME_AMBER
 	selection.fore=#000000
 	selection.back=#FF9900
 
+font.text=$(font.base)
 caret.fore=$(CARECOLOR)
 selection.alpha=256
 colour.code.comment.box=fore:$(COMCOLOR),back:$(BACKCOLOR)
@@ -52,6 +56,8 @@ colour.code.comment.line=fore:$(COMCOLOR),back:$(BACKCOLOR)
 colour.code.comment.doc=fore:$(COMCOLOR),back:$(BACKCOLOR)
 colour.text.comment=fore:$(COMCOLOR),back:$(BACKCOLOR)
 colour.text.comment=fore:$(COMCOLOR),back:$(BACKCOLOR)
+colour.box.comment=fore:$(COMCOLOR),back:$(BACKCOLOR)
+colour.line.comment=fore:$(COMCOLOR),back:$(BACKCOLOR)
 #colour.constant=fore:#55FF55,back:#8c8c8c
 colour.constant=fore:#FFFFFF,back:$(BACKCOLOR)
 colour.embedded.comment=back:$(BACKCOLOR)
@@ -86,7 +92,7 @@ style.*.35=fore:#FF6699,$(font.base),bold
 style.*.36=
 # displaying indentation guides
 #style.*.37=fore:#FFFF00,back:#FFFFFF,$(font.base)
-style.*.37=fore:#FFFF00,back:#FFFFFF,$(font.base)
+style.*.37=fore:#FFFF00,$(font.base)
 # calltip
 #style.*.38=fore:#0066ff,back:#FFFFFF,$(font.base)
 style.*.38=fore:#00ff00,back:#FFFFFF,$(font.base)
@@ -99,14 +105,15 @@ if PLAT_WIN
 if PLAT_GTK
 	position.left=5
 	position.top=22
+    position.tile=1
 position.width=768
-position.height=525
+position.height=739
 
 if USE_CUSTOM_SETTINGS
-	position.left=525
-	position.top=0
-	position.width=755
-	position.height=996
+##	position.left=525
+#	position.top=0
+#	position.width=755
+#	position.height=996
 
 #position.maximize=1
 #position.tile=1
@@ -180,10 +187,9 @@ if USE_CUSTOM_SETTINGS
 #control.char.symbol=.
 caret.period=500
 view.whitespace=0
-view.indentation.whitespace=0
+view.indentation.whitespace=1
 view.indentation.guides=1
-view.indentation.examine=1
-#view.indentation.examine=3
+view.indentation.examine=3
 highlight.indentation.guides=1
 caret.width=3
 #caret.line.back=#FFFED8
@@ -550,7 +556,7 @@ if PLAT_WIN
 	font.monospace=font:Courier New,size:10
 	font.vbs=font:Lucida Sans Unicode,size:10
 if PLAT_GTK
-	font.base=font:Terminus,size:14
+	font.base=font:Terminus,size:12
 	font.small=font:DejaVu Sans,size:11
 	#font.comment=font:Trebuchet MS,size:12
 	font.comment=$(font.base)
@@ -577,7 +583,7 @@ if USE_CUSTOM_SETTINGS
 	style.*.36=
 	style.*.37=$(stlye.indentguides)
 
-font.base=font:Terminus,size:14
+font.base=font:Terminus,size:12
 # Printing - only works on Windows
 print.colour.mode=2
 if PLAT_WIN
@@ -770,15 +776,8 @@ if USE_CUSTOM_SETTINGS
 	command.build.*.cpp=cmd /u /c "c:\dex\settings.cmd > NUL&&cd \dex\build&&make -f ..\bl.mk -I.. $(FileName).test"
 
 ext.lua.startup.script=$(SciteUserHome)/startup.lua
-
 command.name.12.*=Start se editor
 command.subsystem.12.*=3
 command.12.*=EditWithse
 command.mode.12.*=savebefore:no
 command.shortcut.12.*=F12
-
-command.name.13.*=Join two lines
-command.subsystem.13.*=3
-command.13.*=joinEm
-command.mode.13.*=savebefore:no
-command.shortcut.13.*=Ctrl+J

@@ -442,9 +442,11 @@
 		(set-foreground-color "#AAAAAA")
 		;;(set-foreground-color "#55ff55")
         (set-face-attribute 'mode-line nil
-            :foreground "#ffffff"
+            ;:foreground "#ffffff"
+            :foreground "#ffffe5"
             :background "black"
-            :box '(:line-width 2 :color "#55ffff"))
+            ;:box '(:line-width 2 :color "#55ffff"))
+            :box '(:line-width 2 :color "#663399"))
         (set-face-attribute 'modeline-inactive nil
             :foreground "#aaaaaa" :background "black"
             :box "#00aa00"))
@@ -468,31 +470,18 @@
             :foreground "gray"
             :background "cyan")))
 
-;(add-hook 'before-make-frame-hook
-;    #'(lambda ()
-;        ;;(fringe-mode nil)
-;		(set-frame-size-according-to-resolution)
-;		(set-fringe-mode '(0 . 0))
-;        (set-face-attribute 'mode-line nil
-;            :foreground "#ffffff"
-;            :background "black"
-;            :box '(:line-width 2 :color "#55ffff"))
-;        (set-face-attribute 'modeline-inactive nil
-;            :foreground "#aaaaaa" :background "black"
-;            :box "#00aa00")))
-
 (add-hook 'before-make-frame-hook
     #'(lambda ()
         ;;(fringe-mode nil)
 		(set-frame-size-according-to-resolution)
 		(set-fringe-mode '(0 . 0))
         (set-face-attribute 'mode-line nil
-            :foreground "#ffffe5"
+            :foreground "#ffffff"
             :background "black"
-            :box '(:line-width 2 :color "#663399"))
+            :box '(:line-width 2 :color "#55ffff"))
         (set-face-attribute 'modeline-inactive nil
-            :foreground "#ffffe5" :background "black"
-            :box "#663399")))
+            :foreground "#aaaaaa" :background "black"
+            :box "#00aa00")))
 
 (set-face-foreground 'header-line "#000000")
 (set-face-background 'menu "#00aaaa")

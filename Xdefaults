@@ -10,10 +10,12 @@ rofi.color-window:  #000000, #55ff55
 URxvt.font:	xft:Terminus:size=10:antialias=true
 URxvt.boldFont:	xft:Terminus:bold:size=10:antialias=true
 
-XTerm*vt100.geometry: 85x30
+XTerm*vt100.geometry: 95x30
 XTerm*cursorColor:   #66399
-XTerm*Background:		#ffffea
-XTerm*Foreground:		#000000
+!XTerm*Background:		#ffffea
+!XTerm*Foreground:		#000000
+XTerm*Background:		#000000
+XTerm*Foreground:		#55ff55
 XTerm*fullCursor:    true
 XTerm*scrollBar:     true
 XTerm*saveLines:     1000
@@ -22,7 +24,9 @@ XTerm*allowBoldFonts: true
 XTerm*boldMode:		true
 !XTerm*verBoldColors: 4
 
-XTerm*faceName: 	xft:Terminus:size=10:antialias=false
+!XTerm*faceName: 	xft:Terminus:size=12:antialias=false
+!XTerm*faceName: 	xft:Liberation Mono:size=12:antialias=true
+XTerm*faceName: 	xft:IBM Plex Mono Regular:size=12:antialias=true
 XTerm*faceSize:	    8
 XTerm*faceSize1:	6
 XTerm*faceSize2:	10

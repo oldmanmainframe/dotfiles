@@ -62,7 +62,7 @@
 (package-initialize)
 ;; install evil from above . . .
 (require 'evil)
-;;(evil-mode 1)
+(evil-mode 1)
 (global-linum-mode t)
 (setq linum-format "%4d ")
 
@@ -193,25 +193,7 @@
 ;; show tabs . . .
 (setq whitespace-style '(face tabs tab-mark trailing))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 143 :width normal))))
- '(custom-button ((((type x w32 ns) (class color)) (:background "lightgrey" :foreground "black" :box (:line-width 2 :style released-button) :height 0.5))))
- '(custom-comment-tag ((t (:foreground "#55ffff"))))
- '(font-lock-builtin-face ((t (:foreground "#AAAAAA"))))
- '(font-lock-comment-face ((t (:foreground "#55ffff"))))
- '(font-lock-constant-face ((t (:foreground "#AAAAAA"))))
- '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
- '(font-lock-keyword-face ((((class color) (min-colors 88) (background light dark)) (:foreground "#ffffff" :weight bold))))
- '(font-lock-preprocessor-face ((t (:foreground "#AAAAAA" :weight bold))))
- '(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
- '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA" :weight bold))))
- '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
- '(menu ((((type x-toolkit)) (:height 0.75 :width normal))))
- '(speedbar-button-face ((((class color) (background light)) (:foreground "green4" :height 1.0))))
- '(whitespace-tab ((t (:forground "#008b8b")))))
+    '(whitespace-tab ((t (:forground "#008b8b")))))
 (setq whitespace-display-mappings
     '((tab-mark 9 [124 9] [92 9]))) ; 124 is ascii for '|'
 (global-whitespace-mode) ; enable whitespace mode everywhere
@@ -460,10 +442,14 @@
 		(set-foreground-color "#AAAAAA")
 		;;(set-foreground-color "#55ff55")
         (set-face-attribute 'mode-line nil
-            ;:foreground "#ffffff"
-            :foreground "#ffffe5"
-            :background "black"
+            ;; color scheme - mono white
+            :foreground "black"
+            :background "#aaaaaa"
+            ;; color scheme - mono white
             :box '(:line-width 2 :color "#55ffff"))
+            ;; color scheme - acme
+            ;:foreground "#ffffe5"
+            ;:background "black"
             ;:box '(:line-width 2 :color "#663399"))
         (set-face-attribute 'modeline-inactive nil
             :foreground "#aaaaaa" :background "black"
@@ -525,7 +511,37 @@
  '(safe-local-variable-values (quote ((eval when (require (quote rainbow-mode) nil t) (rainbow-mode 1)))))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
-
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 122 :width normal))))
+ '(custom-button ((((type x w32 ns) (class color)) (:background "lightgrey" :foreground "black" :box (:line-width 2 :style released-button) :height 0.5))))
+ ;; -- Color scheme acme
+ ;;'(custom-comment-tag ((t (:foreground "#663399"))))
+ ;'(font-lock-builtin-face ((t (:foreground "#000000"))))
+ ;'(font-lock-comment-face ((t (:foreground "#663399"))))
+ ;'(font-lock-constant-face ((t (:foreground "#000000"))))
+ ;'(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#000000"))))
+ ;'(font-lock-keyword-face ((((class color) (min-colors 88) (background light dark)) (:foreground "#000000" :weight bold))))
+ ;'(font-lock-preprocessor-face ((t (:foreground "#000000" :weight bold))))
+ ;'(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "#000000"))))
+ ;'(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "#000000" :weight bold))))
+ ;'(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#000000"))))
+ ;; -- Color scheme mono-white
+ '(custom-comment-tag ((t (:foreground "#55ffff"))))
+ '(font-lock-builtin-face ((t (:foreground "#AAAAAA"))))
+ '(font-lock-comment-face ((t (:foreground "#55ffff"))))
+ '(font-lock-constant-face ((t (:foreground "#AAAAAA"))))
+ '(font-lock-function-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
+ '(font-lock-keyword-face ((((class color) (min-colors 88) (background light dark)) (:foreground "#ffffff" :weight bold))))
+ '(font-lock-preprocessor-face ((t (:foreground "#AAAAAA" :weight bold))))
+ '(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
+ '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA" :weight bold))))
+ '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
+ '(menu ((((type x-toolkit)) (:height 0.75 :width normal))))
+ '(speedbar-button-face ((((class color) (background light)) (:foreground "green4" :height 1.0)))))
 ;;
 (setq-default mode-line-format
       (list
@@ -541,8 +557,10 @@
       ;; value of user
       (getenv "USER")))
 
+;; color scheme - acme
 ;(add-to-list 'default-frame-alist '(foreground-color . "black"))
 ;(add-to-list 'default-frame-alist '(background-color . "#ffffe5"))
+;; color scheme - mono white
 (add-to-list 'default-frame-alist '(foreground-color . "#aaaaaa"))
 (add-to-list 'default-frame-alist '(background-color . "black"))
 

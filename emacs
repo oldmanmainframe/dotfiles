@@ -179,6 +179,14 @@
 
 ;; language specific tweaks (but look further down as well . . .
 (setq-default python-indent-offset custom-tab-width) ;; for python 
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode t)
+            (setq tab-width 4)
+            (setq python-indent 4)
+            (setq-default py-indent-tabs-mode t)
+           (tabify (point-min) (point-max))
+           (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 (setq-default js-indent-level custom-tab-width)      ;; it's javascript
 
 ;; tame "electric-indent ??
@@ -197,7 +205,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Dina" :foundry "unknown" :slant normal :weight normal :height 99 :width normal))))
+ '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 105 :width normal))))
  '(custom-button ((((type x w32 ns) (class color)) (:background "lightgrey" :foreground "black" :box (:line-width 2 :style released-button) :height 0.5))))
  '(custom-comment-tag ((t (:foreground "#55ffff"))))
  '(font-lock-builtin-face ((t (:foreground "#AAAAAA"))))
@@ -211,7 +219,7 @@
  '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "#AAAAAA"))))
  '(menu ((((type x-toolkit)) (:height 0.75 :width normal))))
  '(speedbar-button-face ((((class color) (background light)) (:foreground "green4" :height 1.0))))
- '(whitespace-tab ((t (:forground "#008b8b")))))
+ '(whitespace-tab ((t (:foreground "#00aaaa")))))
 (setq whitespace-display-mappings
     '((tab-mark 9 [124 9] [92 9]))) ; 124 is ascii for '|'
 (global-whitespace-mode) ; enable whitespace mode everywhere
@@ -520,7 +528,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes (quote ("de1f10725856538a8c373b3a314d41b450b8eba21d653c4a4498d52bb801ecd2" "5ed25f51c2ed06fc63ada02d3af8ed860d62707e96efc826f4a88fd511f45a1d" default)))
@@ -553,5 +560,5 @@
 ;;(add-to-list 'default-frame-alist '(background-color . "black"))
 ;;(add-to-list 'default-frame-alist '(foreground-color . "springgreen"))
 (add-to-list 'default-frame-alist '(foreground-color . "#ffffff"))
-(add-to-list 'default-frame-alist '(background-color . "#696969"))
+(add-to-list 'default-frame-alist '(background-color . "#000000"))
 
